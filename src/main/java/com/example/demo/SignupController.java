@@ -23,14 +23,17 @@ public class SignupController {
     {Signup s = new Signup();
     s.setName(name);
     s.setFood(food);
-    signupRepository.save(s);
     return "Saved";
     }
 
-
     @PostMapping("/signup")
-    public String signupSubmit(@ModelAttribute Signup signup){
+    public String catcher(@ModelAttribute Signup signup){
+        signupRepository.save(signup);
         return "result";
     }
+   /* @RequestMapping("/all")
+    public String signupSubmit(@ModelAttribute Signup signup) {
+        return "result";
+    }*/
 
 }
